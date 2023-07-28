@@ -1,6 +1,10 @@
 # php-full-course-gio
 
-<span>Syntax</span>
-<span>Constants & Variables</span>
-<span>Data types</span>
-<span>Operators</span>
+<span>&#x2022; Syntax</span>
+<br>
+<span>&#x2022; Constants & Variables</span>
+<br>
+<span>&#x2022;Data types</span>
+<br>
+<span>&#x2022; Operators</span>
+<br>
