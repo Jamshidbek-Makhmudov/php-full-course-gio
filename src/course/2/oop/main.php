@@ -63,16 +63,40 @@ POLIMORPHISM: we Refactor ugly switch case statements
 
 
 /*
-public propertylar faqat shu class va shu class ichidagi method ichida ishlatilinadi
+private propertylar faqat shu class va shu class ichidagi method ichida ishlatilinadi
 proteced esa faqat shu class, shu class ichidagui method va shu classdan qaysidir class extend ya'ni inhertance olsa shuni ichida ihlatilinadi.
 
-classda __construct methodi bolasa, yangi object create qilganda () ni ishlatmasa ham boladi. Ammo __construct bolsa () ishlatish majburiy.
+classda __construct methodi bolmasa, yangi object create qilganda () ni ishlatmasa ham boladi. Ammo __construct bolsa () ishlatish majburiy.
 
 
 
-
+STATIC METHOFDS AND PRPERTIES
 static method va propertylar classlarni ichida yoziladi sabab ulari malummbi kategoriyaga tiqish kerakligi uchun
-lekin ularni shu class dan yasaladigan objectga xec qanday aloqasi yoq bu objectni yasamasdan ham static methodlarga access qilsa boladi. xosh bu nega kerak? bu shu classdan yasaladigan methodlar uchun hammasiga umumiy bolsin degan manoda ishlatsa boladi
+lekin ularni shu class dan yasaladigan objectga xec qanday aloqasi yoq bu objectni yasamasdan ham static methodlarga access qilsa boladi. xosh bu nega kerak? bu shu classdan yasaladigan methodlar uchun hammasiga umumiy bolsin degan manoda ishlatsa boladi.
+
+classdan extends olinsa child class ichidagi property;
+arga self::$ qilib onasi class property si uchun parent::$ ishlatilinadi, lekin const lar uchun $ shart emas 
+
+
+
+
+
+
+INTERFACE:
+ interfacelar classlarni bir xil qoida solib beradi. agar bir nehcta classlar da 1xil methodlar takrorlanishi kerak bolsa biz shu methodni interfacega chiqarib qoysak boladi. keyin shu interfacedan implements olish kerak boladi va shundan song shu implements ni olgan class lar interface ichidagi methodni ishlatishi majburiy bolib qoladi aks xolda error beradi
+
+
+
+
+ ABSTRACT CLASSES:
+ asbtract classlarni oziga yarasha qoidasi bor abstarct classdan obect yasab bolmaydi boshqa bir classga reference berib ishlatish kerak 
+yana bir qoida agar 1ta abstact method yasamoqchi bolsa albatta u abstact classini ichida yasalishi kerak va agar abstarct class ichida abstract methodi yozlilgan bolsa boshqa shu classdan extends olgan classlar ham shu abstract methodini olishi majburiy bolmasa error beradi
+
+
+
+ANONYMOUS CLASSES:
+anonymous class: websitemiz otirasidan joy olmaydi, va yengil xisoblanadi. va hammasi- classni yaratish, objectga tenglash, ishlash hammasi bitta pageda boladi. classdan object yasalgandan keyin php ozi bu classni ochirib yuboradi. va bu classdan boshqa joyda ham ishlatib bolmaydi. yasalishda clasdan keyin () ni yozmasa ham boladi, lekin agar shu class ichida constructordan foydalansak ()ni yozib ketish kerak chunki uni ichiga biz argumentlarni joylaymiz
+
 
 
 ///////////////////////////////

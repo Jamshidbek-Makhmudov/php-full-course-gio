@@ -41,7 +41,7 @@ class ComposerStaticInit0985d8c6e7ea98f033e6b358ba4dfb5f
         ),
         'Classes\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Classes',
+            0 => __DIR__ . '/../..' . '/src/classes',
         ),
         'Brick\\Math\\' => 
         array (
