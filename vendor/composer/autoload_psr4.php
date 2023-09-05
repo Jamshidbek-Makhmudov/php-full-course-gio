@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
-    'Classes\\' => array($baseDir . '/src/Classes'),
+    'Classes\\' => array($baseDir . '/src/classes'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'Acme\\' => array($baseDir . '/app/Acme'),
 );

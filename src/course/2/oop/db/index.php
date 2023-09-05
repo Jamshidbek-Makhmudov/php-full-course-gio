@@ -4,8 +4,16 @@ $site_path=$_SERVER["DOCUMENT_ROOT"];
 $autoload="/pdo/vendor/autoload.php";
 require $site_path.$autoload;
 
+<<<<<<< HEAD
 
 echo $site_path.$autoload;
+=======
+//include $site_path."/pdo/src/classes/Db/db.php";
+//include $site_path."/pdo/src/classes/test.php";
+
+use Classes\Test;
+
+>>>>>>> origin/main
 
 
 
@@ -25,6 +33,15 @@ echo $site_path.$autoload;
 
 <body>
 
+<<<<<<< HEAD
+=======
+	<?php 
+$testObj=new Test();
+echo $testObj->getUsers();
+
+?>
+
+>>>>>>> origin/main
 </body>
 
 </html>
