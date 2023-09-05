@@ -15,7 +15,7 @@ let time:10;
 let rate:20;
 
 function gateWage(salry, time, rate){
-	return salary+(time*rate)
+  return salary+(time*rate)
 }
  yuqorida Procedural programmingga misol berilgan yani function parametrlari kop va fiunction kopaygan sari parametrlar ham kopayib boraveradi;
   
@@ -25,7 +25,7 @@ function gateWage(salry, time, rate){
  time:10,
  rate:20,
  getWage:function(){
-	return this.salary+(this.time*this.rate)
+  return this.salary+(this.time*this.rate)
  }
  }
 employee.getWage()
@@ -73,7 +73,10 @@ classda __construct methodi bolmasa, yangi object create qilganda () ni ishlatma
 STATIC METHOFDS AND PRPERTIES
 static method va propertylar classlarni ichida yoziladi sabab ulari malummbi kategoriyaga tiqish kerakligi uchun
 lekin ularni shu class dan yasaladigan objectga xec qanday aloqasi yoq bu objectni yasamasdan ham static methodlarga access qilsa boladi. xosh bu nega kerak? bu shu classdan yasaladigan methodlar uchun hammasiga umumiy bolsin degan manoda ishlatsa boladi.
+<<<<<<< HEAD
+=======
 static method ichida $this keywordi ishlatilinmaydi
+>>>>>>> 9252a02 (throw exceptions)
 
 classdan extends olinsa child class ichidagi property;
 arga self::$ qilib onasi class property si uchun parent::$ ishlatilinadi, lekin const lar uchun $ shart emas 
@@ -85,20 +88,22 @@ arga self::$ qilib onasi class property si uchun parent::$ ishlatilinadi, lekin 
 
 INTERFACE:
  interfacelar classlarni bir xil qoida solib beradi. agar bir nehcta classlar da 1xil methodlar takrorlanishi kerak bolsa biz shu methodni interfacega chiqarib qoysak boladi. keyin shu interfacedan implements olish kerak boladi va shundan song shu implements ni olgan class lar interface ichidagi methodni ishlatishi majburiy bolib qoladi aks xolda error beradi
+<<<<<<< HEAD
+=======
  1ta class birnechta interfacelardan implement olsa boladi
  bosqhqa misol:
  bunda constructorni ichidagi icghida LoggerInterface dan qaysi class implemet olgan bolsa shuni qabul qiladi
 
  interface LoggerInterface
  {
-	public function execute();
+  public function execute();
  }
 
 
  class LogtoDb implements LoggerInterface
  {
-	 public function execute($message){
-	echo "bazaga yozish":$message;
+   public function execute($message){
+  echo "bazaga yozish":$message;
  }
  }
 
@@ -106,23 +111,24 @@ INTERFACE:
  class UsersController 
 
  {
-	protected $logger;
+  protected $logger;
 
-	public function __construct(LoggerInterface $logger){
-		$this->logger = $logger;
-	}
-	public function show()
-	{
-		$log= "show method";
+  public function __construct(LoggerInterface $logger){
+    $this->logger = $logger;
+  }
+  public function show()
+  {
+    $log= "show method";
 
-	$this->logger->execute($log);
+  $this->logger->execute($log);
 
-	}
+  }
  }
  $log= new LogtoFile();
  $controller= new UsersController($log);
 
  $controller->show();
+>>>>>>> 9252a02 (throw exceptions)
 
 
 
@@ -130,13 +136,18 @@ INTERFACE:
  ABSTRACT CLASSES:
  asbtract classlarni oziga yarasha qoidasi bor abstarct classdan obect yasab bolmaydi boshqa bir classga reference berib ishlatish kerak 
 yana bir qoida agar 1ta abstact method yasamoqchi bolsa albatta u abstact classini ichida yasalishi kerak va agar abstarct class ichida abstract methodi yozlilgan bolsa boshqa shu classdan extends olgan classlar ham shu abstract methodini olishi majburiy bolmasa error beradi
+<<<<<<< HEAD
+=======
 abstarct class dan meros olib ichidagi methodlar kochirib yozilganda bu hodiasa Polimorphyzm deyiladi
+>>>>>>> 9252a02 (throw exceptions)
 
 
 
 ANONYMOUS CLASSES:
 anonymous class: websitemiz otirasidan joy olmaydi, va yengil xisoblanadi. va hammasi- classni yaratish, objectga tenglash, ishlash hammasi bitta pageda boladi. classdan object yasalgandan keyin php ozi bu classni ochirib yuboradi. va bu classdan boshqa joyda ham ishlatib bolmaydi. yasalishda clasdan keyin () ni yozmasa ham boladi, lekin agar shu class ichida constructordan foydalansak ()ni yozib ketish kerak chunki uni ichiga biz argumentlarni joylaymiz
 
+<<<<<<< HEAD
+=======
 TRAITS:
 classlar faqat 1ta classdan meros olishi mumkin lekin agar 2ta classdan meros olmoqchi bolsa buni Traits lar yordamida qilsa bolad:
 xusiyatlarni 1ta nechta classlar merso olsa boladi;
@@ -146,29 +157,29 @@ faqat class ichida ishlatsa boladi boshqa joyda emas:
 
 1)
 triat MyTrait{
-	..
+  ..
 }
 class MYClass{
-	Mytrait
+  Mytrait
 }
 2)
 Trait Hello{
-	public function hello()
-	{
-		echo "hello";
+  public function hello()
+  {
+    echo "hello";
 
-	}
+  }
 }
 Trait World{
-	public function World()
-	{
-		echo "world";
+  public function World()
+  {
+    echo "world";
 
-	}
+  }
 }
 class Myclass
 {
-	use Hello,World;
+  use Hello,World;
 
 }
 $obj=new Myclass();
@@ -208,26 +219,27 @@ if($th<0){
 throw new Exception("incorrect number: " . $th);
 }
 try {
-	//code...
+  //code...
 } catch (Exception $e) {
-	echo $e->getMessage();
+  echo $e->getMessage();
 }
  misal uchuin try_catch_exception.php ni qara!
+>>>>>>> 9252a02 (throw exceptions)
 
 
 ///////////////////////////////
 autolaod composer:
 "autoload": {
-	"psr-4": {
-		"App\\": "app/"
-	}
-	///////////////////////////////
-	"autoload": {
-		"classmap": [
-			"src/app/classes"
-			]
-		}
-		///////////////////////////////
+  "psr-4": {
+    "App\\": "app/"
+  }
+  ///////////////////////////////
+  "autoload": {
+    "classmap": [
+      "src/app/classes"
+      ]
+    }
+    ///////////////////////////////
  "autoload": {
             "classmap": ["app/models", "app/services"]
         }
