@@ -63,16 +63,156 @@ POLIMORPHISM: we Refactor ugly switch case statements
 
 
 /*
-public propertylar faqat shu class va shu class ichidagi method ichida ishlatilinadi
+private propertylar faqat shu class va shu class ichidagi method ichida ishlatilinadi
 proteced esa faqat shu class, shu class ichidagui method va shu classdan qaysidir class extend ya'ni inhertance olsa shuni ichida ihlatilinadi.
 
-classda __construct methodi bolasa, yangi object create qilganda () ni ishlatmasa ham boladi. Ammo __construct bolsa () ishlatish majburiy.
+classda __construct methodi bolmasa, yangi object create qilganda () ni ishlatmasa ham boladi. Ammo __construct bolsa () ishlatish majburiy.
 
 
 
-
+STATIC METHOFDS AND PRPERTIES
 static method va propertylar classlarni ichida yoziladi sabab ulari malummbi kategoriyaga tiqish kerakligi uchun
-lekin ularni shu class dan yasaladigan objectga xec qanday aloqasi yoq bu objectni yasamasdan ham static methodlarga access qilsa boladi. xosh bu nega kerak? bu shu classdan yasaladigan methodlar uchun hammasiga umumiy bolsin degan manoda ishlatsa boladi
+lekin ularni shu class dan yasaladigan objectga xec qanday aloqasi yoq bu objectni yasamasdan ham static methodlarga access qilsa boladi. xosh bu nega kerak? bu shu classdan yasaladigan methodlar uchun hammasiga umumiy bolsin degan manoda ishlatsa boladi.
+static method ichida $this keywordi ishlatilinmaydi
+
+classdan extends olinsa child class ichidagi property;
+arga self::$ qilib onasi class property si uchun parent::$ ishlatilinadi, lekin const lar uchun $ shart emas 
+
+
+
+
+
+
+INTERFACE:
+ interfacelar classlarni bir xil qoida solib beradi. agar bir nehcta classlar da 1xil methodlar takrorlanishi kerak bolsa biz shu methodni interfacega chiqarib qoysak boladi. keyin shu interfacedan implements olish kerak boladi va shundan song shu implements ni olgan class lar interface ichidagi methodni ishlatishi majburiy bolib qoladi aks xolda error beradi
+ 1ta class birnechta interfacelardan implement olsa boladi
+ bosqhqa misol:
+ bunda constructorni ichidagi icghida LoggerInterface dan qaysi class implemet olgan bolsa shuni qabul qiladi
+
+ interface LoggerInterface
+ {
+	public function execute();
+ }
+
+
+ class LogtoDb implements LoggerInterface
+ {
+	 public function execute($message){
+	echo "bazaga yozish":$message;
+ }
+ }
+
+
+ class UsersController 
+
+ {
+	protected $logger;
+
+	public function __construct(LoggerInterface $logger){
+		$this->logger = $logger;
+	}
+	public function show()
+	{
+		$log= "show method";
+
+	$this->logger->execute($log);
+
+	}
+ }
+ $log= new LogtoFile();
+ $controller= new UsersController($log);
+
+ $controller->show();
+
+
+
+
+ ABSTRACT CLASSES:
+ asbtract classlarni oziga yarasha qoidasi bor abstarct classdan obect yasab bolmaydi boshqa bir classga reference berib ishlatish kerak 
+yana bir qoida agar 1ta abstact method yasamoqchi bolsa albatta u abstact classini ichida yasalishi kerak va agar abstarct class ichida abstract methodi yozlilgan bolsa boshqa shu classdan extends olgan classlar ham shu abstract methodini olishi majburiy bolmasa error beradi
+abstarct class dan meros olib ichidagi methodlar kochirib yozilganda bu hodiasa Polimorphyzm deyiladi
+
+
+
+ANONYMOUS CLASSES:
+anonymous class: websitemiz otirasidan joy olmaydi, va yengil xisoblanadi. va hammasi- classni yaratish, objectga tenglash, ishlash hammasi bitta pageda boladi. classdan object yasalgandan keyin php ozi bu classni ochirib yuboradi. va bu classdan boshqa joyda ham ishlatib bolmaydi. yasalishda clasdan keyin () ni yozmasa ham boladi, lekin agar shu class ichida constructordan foydalansak ()ni yozib ketish kerak chunki uni ichiga biz argumentlarni joylaymiz
+
+TRAITS:
+classlar faqat 1ta classdan meros olishi mumkin lekin agar 2ta classdan meros olmoqchi bolsa buni Traits lar yordamida qilsa bolad:
+xusiyatlarni 1ta nechta classlar merso olsa boladi;
+Trait dan object hosil qilib bolmaydi faqat meros olsa boladi
+methodlari: public, private, protected:
+faqat class ichida ishlatsa boladi boshqa joyda emas:
+
+1)
+triat MyTrait{
+	..
+}
+class MYClass{
+	Mytrait
+}
+2)
+Trait Hello{
+	public function hello()
+	{
+		echo "hello";
+
+	}
+}
+Trait World{
+	public function World()
+	{
+		echo "world";
+
+	}
+}
+class Myclass
+{
+	use Hello,World;
+
+}
+$obj=new Myclass();
+$obj->hello();
+$obj->World(); //hello world
+
+
+
+
+
+CONST:
+
+__FILE__ file turgan yolni qaytaradi
+__DIR__   file turgan papka turgan yolni qaytaradi
+__FUNCTION__ function nomini qaytaradi
+__CLASS__ class nomini qaytaradi
+__TRAIT__ trait nomini qaytaradi
+__METHOD__ method nomini qaytaradi
+__NAMESPACE__ namespace nomini qaytaradi
+Classname::class- class nomini qaytaradi
+
+
+Namespace:
+include "" admin/ConnectDb.php;
+include "" oop/ConnectDb.php;
+use admin\ConnectDb;
+use oop\ConnectDb as MyConnectDb;
+$b=new ConnectDb();
+$conn=new MyConnectDb();
+
+namaspacelarni shunaqa qilib qayta nomlab ishlatsa boladi
+
+
+
+try catch exceptions: errorlarni chiroyli qilib foydalanuvchiga korsatish uchun kerak
+if($th<0){
+throw new Exception("incorrect number: " . $th);
+}
+try {
+	//code...
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+ misal uchuin try_catch_exception.php ni qara!
 
 
 ///////////////////////////////

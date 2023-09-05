@@ -16,7 +16,8 @@ class Car{
 	public function __construct()
 	{
 		$this->pub_counter++; // bu ozgarmaydi sababi bu instance har safar qaytsa chaqirilganda yangi object bolib 0 dan qaytaradi
-		self::$counter++; // osadi sababi static methodlar classni oziga tenng
+		self::$counter++; // osadi sababi static methodlar classni oziga teng
+		//agar shu clasdan inhertance olinsa parentdagi property ni charishi uchun self ni orniga parent:: ishlatilinadi
 
 		
 		

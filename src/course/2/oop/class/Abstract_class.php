@@ -5,7 +5,7 @@ abstract class Shape
 
 	public function __construct($color)
 	{
-		return $this->color=$color;
+		 $this->color=$color;
 	}
 	abstract public function getArea();
 
